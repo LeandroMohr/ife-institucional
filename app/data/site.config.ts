@@ -78,12 +78,12 @@ export const siteConfig = {
 
   // ==================== INFORMAÇÕES INSTITUCIONAIS ====================
   institucional: {
-    cnpj: '36.942.850/0001-56',
-    dataFundacao: '2020-01-01',
+    cnpj: '37.695.827/0001-77',
+    dataFundacao: '2020-05-06',
     razaoSocial: 'Instituto Futuro de Excelência',
     presidente: 'Emerson Rafael Baptista dos Anjos',
     vigenciaDiretoria: '2023-2027',
-    inscricaoMunicipal: '000.000.000-0',
+    inscricaoMunicipal: '00 00 878.846-1',
     inscricaoEstadual: 'ISENTO',
     reconhecimentos: {
       comtiba: {
