@@ -11,14 +11,12 @@ import {
   Divider,
   Link as MuiLink,
 } from '@mui/material';
-import DescriptionIcon from '@mui/icons-material/Description';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import GavelIcon from '@mui/icons-material/Gavel';
-import AssessmentIcon from '@mui/icons-material/Assessment';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import MainLayout from '../components/layout/MainLayout';
 import PageHero from '../components/common/PageHero';
 import Section from '../components/common/Section';
+import { transparencyDocuments } from '../data/transparency';
 import siteConfig, { gerarLinkWhatsApp } from '@/app/data/site.config';
 
 export const metadata: Metadata = {
@@ -298,81 +296,44 @@ export default function TransparenciaPage() {
           </Typography>
 
           <Grid container spacing={3}>
-            <Grid size={{ xs: 12, md: 6 }}>
-              <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider' }}>
-                <CardContent>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <DescriptionIcon sx={{ fontSize: 40, color: 'primary.main', mr: 2 }} />
-                    <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                      Estatuto Social
-                    </Typography>
-                  </Box>
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                    Estatuto atualizado e vigente da instituição
-                  </Typography>
-                  <MuiLink href="#" sx={{ color: 'primary.main', fontWeight: 500 }}>
-                    Baixar documento →
-                  </MuiLink>
-                </CardContent>
-              </Card>
-            </Grid>
+            {transparencyDocuments.map((document) => {
+              const Icon = document.icon;
 
-            <Grid size={{ xs: 12, md: 6 }}>
-              <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider' }}>
-                <CardContent>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <AssessmentIcon sx={{ fontSize: 40, color: 'primary.main', mr: 2 }} />
-                    <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                      Relatório de Atividades
-                    </Typography>
-                  </Box>
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                    Relatório anual de atividades e impacto social
-                  </Typography>
-                  <MuiLink href="#" sx={{ color: 'primary.main', fontWeight: 500 }}>
-                    Baixar documento →
-                  </MuiLink>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid size={{ xs: 12, md: 6 }}>
-              <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider' }}>
-                <CardContent>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <AccountBalanceIcon sx={{ fontSize: 40, color: 'primary.main', mr: 2 }} />
-                    <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                      Prestação de Contas
-                    </Typography>
-                  </Box>
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                    Demonstrativos financeiros e prestação de contas
-                  </Typography>
-                  <MuiLink href="#" sx={{ color: 'primary.main', fontWeight: 500 }}>
-                    Baixar documento →
-                  </MuiLink>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid size={{ xs: 12, md: 6 }}>
-              <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider' }}>
-                <CardContent>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <GavelIcon sx={{ fontSize: 40, color: 'primary.main', mr: 2 }} />
-                    <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                      Ata de Assembleia
-                    </Typography>
-                  </Box>
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                    Atas de assembleias gerais e decisões institucionais
-                  </Typography>
-                  <MuiLink href="#" sx={{ color: 'primary.main', fontWeight: 500 }}>
-                    Baixar documento →
-                  </MuiLink>
-                </CardContent>
-              </Card>
-            </Grid>
+              return (
+                <Grid key={document.id} size={{ xs: 12, md: 6 }}>
+                  <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider' }}>
+                    <CardContent>
+                      <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                        <Icon sx={{ fontSize: 40, color: 'primary.main', mr: 2 }} />
+                        <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                          {document.title}
+                        </Typography>
+                      </Box>
+                      <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                        {document.description}
+                      </Typography>
+                      <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                        <MuiLink
+                          href={document.href}
+                          download
+                          sx={{ color: 'text.secondary', fontWeight: 500 }}
+                        >
+                          {document.downloadLabel} ↓
+                        </MuiLink>
+                        <MuiLink
+                          href={document.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          sx={{ color: 'primary.main', fontWeight: 500 }}
+                        >
+                          {document.openLabel} →
+                        </MuiLink>
+                      </Box>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              );
+            })}
           </Grid>
         </Container>
       </Section>
