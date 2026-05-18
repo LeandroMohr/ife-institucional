@@ -117,7 +117,7 @@ export const bankingInfo = {
   agency: '1234-5',
   account: '12345-6',
   accountType: 'Conta Corrente',
-  cnpj: '12.345.678/0001-90',
-  pixKey: '12.345.678/0001-90',
+  cnpj: '37.695.827/0001-77',
+  pixKey: '37.695.827/0001-77',
   favored: 'Instituto Futuro de Excelência - IFE',
 };
