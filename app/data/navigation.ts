@@ -18,7 +18,15 @@ export const mainNavigation: NavigationItem[] = [
     ]
   },
   { label: 'Projetos e Oficinas', href: '/projetos-e-cursos' },
-  { label: 'Imposto de Renda', href: '/imposto-de-renda' },
+  {
+    label: 'Imposto de Renda',
+    href: '/imposto-de-renda',
+    submenu: [
+      { label: 'Destinação (padrão)', href: '/imposto-de-renda' },
+      { label: 'Versão híbrida', href: '/imposto-de-renda-hibrido' },
+      { label: 'Versão WhatsApp', href: '/imposto-de-renda-whatsapp' },
+    ],
+  },
   { label: 'Seja Voluntário', href: '/seja-voluntario' },
   { label: 'Notícias', href: '/noticias' },
 ]
