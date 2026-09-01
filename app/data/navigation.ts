@@ -18,6 +18,7 @@ export const mainNavigation: NavigationItem[] = [
     ]
   },
   { label: 'Projetos e Oficinas', href: '/projetos-e-cursos' },
+  { label: 'Imposto de Renda', href: '/imposto-de-renda' },
   { label: 'Seja Voluntário', href: '/seja-voluntario' },
   { label: 'Notícias', href: '/noticias' },
 ]
@@ -29,8 +30,10 @@ export const footerNavigation: NavigationItem[] = [
   { label: 'Seja Voluntário', href: '/seja-voluntario' },
   { label: 'Notícias', href: '/noticias' },
   { label: 'Doar', href: '/doar' },
+  { label: 'Imposto de Renda', href: '/imposto-de-renda' },
   { label: 'Perguntas Frequentes', href: '/faq' },
   { label: 'Transparência', href: '/transparencia' },
+  { label: 'Política de Privacidade', href: '/politica-de-privacidade' },
 ]
 
 export const ctaButton = {
