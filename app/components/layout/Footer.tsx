@@ -3,6 +3,7 @@
 import * as React from 'react';
 import {
   Box,
+  Button,
   Container,
   Typography,
   Link as MuiLink,
@@ -16,6 +17,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Link from 'next/link';
 import siteConfig, { gerarLinkEmail, gerarLinkWhatsApp } from '@/app/data/site.config';
 import { footerNavigation } from '@/app/data/navigation';
+import { abrirPreferenciasCookies } from '@/app/components/common/CookieConsent';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -216,6 +218,14 @@ export default function Footer() {
           <Typography variant="body2" sx={{ color: 'grey.400', textAlign: 'center' }}>
             © {currentYear} {siteConfig.nome}. Todos os direitos reservados.
           </Typography>
+          <Button
+            variant="text"
+            size="small"
+            onClick={abrirPreferenciasCookies}
+            sx={{ color: 'grey.400', textDecoration: 'underline' }}
+          >
+            Preferências de cookies
+          </Button>
           <Typography variant="body2" sx={{ color: 'grey.500', textAlign: 'center' }}>
             Desenvolvido com 💙 para transformar vidas
           </Typography>
