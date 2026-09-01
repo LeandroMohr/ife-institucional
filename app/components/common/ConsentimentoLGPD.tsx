@@ -31,8 +31,13 @@ export default function ConsentimentoLGPD({
           />
         }
         sx={{ alignItems: 'flex-start', ml: 0 }}
+        // O asterisco padrão do MUI quebraria em uma linha solta abaixo do texto.
+        required={false}
         label={
           <Typography variant="body2" color="text.secondary">
+            <Box component="span" aria-hidden sx={{ color: 'error.main', mr: 0.5 }}>
+              *
+            </Box>
             Autorizo o {siteConfig.nome} a usar meus dados para {finalidade} e declaro estar ciente
             da{' '}
             <MuiLink component={Link} href={siteConfig.privacidade.paginaPolitica}>
